@@ -19,6 +19,7 @@ if (amplituda < 1 || length < 1){
     print("klops")
     exit(0)
 }
+
 var space: [[Character]]  = Array(repeating: Array(repeating: " ", count: length), count: amplituda)
 
 var x: Int = 0
@@ -26,7 +27,6 @@ var y: Int = 0
 var direction: Direction = .down
 
 while(0 < length){
-    
     space[y][x] = "*"
     length -= 1
     
