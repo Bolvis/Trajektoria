@@ -29,15 +29,15 @@ var direction: Direction = .down
 while(0 < length){
     space[y][x] = "*"
     length -= 1
-    
+   
     if (1 == amplituda) {direction = .cons}
     else if (0 == y) {direction = .down}
-    else if (amplituda-1 == y) {direction = .up}
+    else if (amplituda - 1 == y) {direction = .up}
     
     switch(direction){
     case .down: y += 1; x += 1; break
     case .up: y -= 1; x += 1; break
-    case .cons: x+=1; break
+    case .cons: x += 1; break
     }
 }
 
