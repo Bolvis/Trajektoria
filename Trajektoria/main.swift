@@ -15,35 +15,45 @@ enum Direction{
 let amplituda: Int  = Int(CommandLine.arguments[1]) ?? -1
 var length: Int = Int(CommandLine.arguments[2]) ?? -1
 
-if (amplituda < 1 || length < 1){
+if (checkIfKlops(lenght: length, amplituda: amplituda)){
     print("klops")
     exit(0)
 }
+let space: [[Character]] = fillSpace(lenght: length,amplituda: amplituda)
+printSpace(space)
 
-var space: [[Character]]  = Array(repeating: Array(repeating: " ", count: length), count: amplituda)
-
-var x: Int = 0
-var y: Int = 0
-var direction: Direction = .down
-
-while(0 < length){
-    space[y][x] = "*"
-    length -= 1
-   
-    if (1 == amplituda) {direction = .cons}
-    else if (0 == y) {direction = .down}
-    else if (amplituda - 1 == y) {direction = .up}
-    
-    switch(direction){
-    case .down: y += 1; x += 1; break
-    case .up: y -= 1; x += 1; break
-    case .cons: x += 1; break
-    }
+func checkIfKlops(lenght: Int, amplituda: Int) -> Bool{
+    return amplituda < 1 || length < 1;
 }
 
-for line in space{
-    for char in line{
-        print(char, terminator: "")
+func fillSpace(lenght: Int, amplituda: Int, character: Character = "*") -> [[Character]]{
+    var space: [[Character]]  = Array(repeating: Array(repeating: " ", count: length), count: amplituda)
+    var x: Int = 0
+    var y: Int = 0
+    var direction: Direction = .down
+
+    while(0 < length){
+        space[y][x] = character
+        length -= 1
+       
+        if (1 == amplituda) {direction = .cons}
+        else if (0 == y) {direction = .down}
+        else if (amplituda - 1 == y) {direction = .up}
+        
+        switch(direction){
+        case .down: y += 1; x += 1; break
+        case .up: y -= 1; x += 1; break
+        case .cons: x += 1; break
+        }
     }
-    print()
+    return space
+}
+
+func printSpace(_ space: [[Character]]){
+    for line in space{
+        for char in line{
+            print(char, terminator: "")
+        }
+        print()
+    }
 }
