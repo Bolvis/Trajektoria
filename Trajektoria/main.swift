@@ -15,18 +15,18 @@ enum Direction{
 let amplituda: Int  = Int(CommandLine.arguments[1]) ?? -1
 var length: Int = Int(CommandLine.arguments[2]) ?? -1
 
-if (checkIfKlops(lenght: length, amplituda: amplituda)){
+if (checkIfKlops()){
     print("klops")
     exit(0)
 }
-let space: [[Character]] = fillSpace(lenght: length,amplituda: amplituda)
+let space: [[Character]] = fillSpace()
 printSpace(space)
 
-func checkIfKlops(lenght: Int, amplituda: Int) -> Bool{
+func checkIfKlops() -> Bool{
     return amplituda < 1 || length < 1;
 }
 
-func fillSpace(lenght: Int, amplituda: Int, character: Character = "*") -> [[Character]]{
+func fillSpace(character: Character = "*") -> [[Character]]{
     var space: [[Character]]  = Array(repeating: Array(repeating: " ", count: length), count: amplituda)
     var x: Int = 0
     var y: Int = 0
