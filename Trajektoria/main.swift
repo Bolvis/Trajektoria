@@ -41,9 +41,15 @@ func fillSpace(character: Character = "*") -> [[Character]]{
         else if (amplituda - 1 == y) {direction = .up}
         
         switch(direction){
-        case .down: y += 1; x += 1; break
-        case .up: y -= 1; x += 1; break
-        case .cons: x += 1; break
+            case .down: 
+                y += 1; x += 1 
+                break
+            case .up: 
+                y -= 1; x += 1
+                break
+            case .cons: 
+                x += 1 
+                break
         }
     }
     return space
